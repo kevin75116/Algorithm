@@ -10,12 +10,11 @@ def partition(l):
     :return list pivot: a list includes only the pivot value
     :return list g: a list of numbers greater than pivot value
     """
-    if len(l) == 0:
-        return [], [], []
-    elif len(l) == 1:
-        return [], l[-1], []
+    s, g = [], []
+    pivot = [] if len(l) == 0 else l[-1]
+    if len(l) in [0, 1]:
+        return s, [pivot], g
     else:
-        s, g = [], []
         pivot = l[-1]
         for i in l[:-1]:
             if i > pivot:
