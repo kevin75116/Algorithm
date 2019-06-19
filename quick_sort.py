@@ -23,6 +23,32 @@ def partition(l):
                 s.append(i)
         return s, [pivot], g
 
+def partition2(l):
+    """Partition a list into 2 sub lists.
+
+    This partition algorithm is a race of two pointers, i and j.
+    Pointer i is to keep the index of the smaller value, which is
+    compared to the pivot, in the list l. And j is just the index
+    of current item in the list l.
+
+    Once if j points to a value smaller than pivot, accumrate i
+    and then swap values that pointer i and j point to. Otherwise,
+    do nothing and go to next iteration.
+
+    :param list l: the original list of numbers
+    :return list s: a list of numbers smaller than pivot value
+    :return list pivot: a list includes only the pivot value
+    :return list g: a list of numbers greater than pivot value
+    """
+    i = -1
+    pivot = l[-1]  # select the rightmost value as the pivot
+    for j, v in enumerate(l[:-1]):
+        print("Before: %s i = %s j = %s" % (l, i, j))
+        if v <= pivot:
+            i = i + 1
+            l[i], l[j] = l[j], l[i]
+        print("After: %s i = %s j = %s" % (l, i, j))
+    return l[:i+1], l[-1], l[i+1:-1]
 
 def quicksort(l):
     if len(l) in [0, 1]:
