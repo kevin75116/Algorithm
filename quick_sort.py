@@ -48,7 +48,7 @@ def partition2(l):
             i = i + 1
             l[i], l[j] = l[j], l[i]
         print("After: %s i = %s j = %s" % (l, i, j))
-    return l[:i+1], l[-1], l[i+1:-1]
+    return l[:i+1], [pivot], l[i+1:-1]
 
 def quicksort(l):
     if len(l) in [0, 1]:
