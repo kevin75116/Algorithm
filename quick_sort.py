@@ -12,16 +12,14 @@ def partition(l):
     """
     s, g = [], []
     pivot = [] if len(l) == 0 else l[-1]
-    if len(l) in [0, 1]:
-        return s, [pivot], g
-    else:
+    if len(l) not in [0, 1]:
         pivot = l[-1]
         for i in l[:-1]:
             if i > pivot:
                 g.append(i)
             elif i <= pivot:
                 s.append(i)
-        return s, [pivot], g
+    return s, [pivot], g
 
 def partition2(l):
     """Partition a list into 2 sub lists.
