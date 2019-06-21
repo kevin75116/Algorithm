@@ -43,11 +43,9 @@ def partition2(l):
     i = -1
     pivot = l[-1]  # select the rightmost value as the pivot
     for j, v in enumerate(l[:-1]):
-        print("Before: %s i = %s j = %s" % (l, i, j))
         if v <= pivot:
             i = i + 1
             l[i], l[j] = l[j], l[i]
-        print("After: %s i = %s j = %s" % (l, i, j))
     return l[:i+1], [pivot], l[i+1:-1]
 
 def quicksort(l):
