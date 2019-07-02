@@ -52,9 +52,18 @@ def quicksort(l):
     elif len(l) > 1:
         s, p, g = partition(l)
     return quicksort(s) + p + quicksort(g)
-    
 
-# Test1
-input_list = [2, 1, 9, 9, 7, 5, 0, 3]
-expect_out = [0, 1, 2, 3, 5, 7, 9, 9]
-print("Pass test1: %s" % (quicksort(input_list) == expect_out))
+
+# Test cases
+input1 = [2, 1, 9, 9, 7, 5, 0, 3]
+input2 = range(9, -1, -1)
+
+# Answers
+answer1 = [0, 1, 2, 3, 5, 7, 9, 9]
+answer2 = range(10)
+
+print(quicksort(input1) == answer1)
+print(quicksort(input2) == answer2)
+partition = partition2
+print(quicksort(input1) == answer1)
+print(quicksort(input2) == answer2)
